@@ -9,7 +9,7 @@ import org.example.dto.ElevatorInfo;
 import java.util.List;
 import java.util.UUID;
 
-public class ElevatorController implements Runnable {
+public class ElevatorController {
     private final Elevator elevator;
     @Getter
     private ElevatorInfo elevatorInfo;
@@ -33,8 +33,8 @@ public class ElevatorController implements Runnable {
 
     }
 
-    @Override
-    public void run() {
+
+    public void reqProcessor() {
         int getFloor = requestHandler.processRequest(elevatorInfo.getElevatorId());
         if(getFloor > elevatorInfo.getFloor()) {
             elevator.moveUp();
